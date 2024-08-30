@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+function ParentComponent() {
+  const student = {
+    name: "Tanu",
+    age: 20,
+    class: "Programming"
+  };
+
+  // passing function(callback function)
+  const handleClick = () => {
+    console.log("Button clicked!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <ChildComponent
+      student={student}
+      onClick={handleClick}
+      header={<h1>Student Details</h1>}
+    />
+  );
+}
+
+function ChildComponent({ student, onClick, header }) {
+  return (
+    <div>
+      {header}
+      <p>Name: {student.name}</p>
+      <p>Age: {student.age}</p>
+      <p>Class: {student.class}</p>
+      <button onClick={onClick}>Click Me</button>
     </div>
   );
 }
 
-export default App;
+export default ParentComponent;
