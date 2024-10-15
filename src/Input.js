@@ -51,23 +51,24 @@
 
 // export default UserInputRecord;
 
-
-"use client"
+"use client";
 import { useState } from "react";
+import "./Input.css";
 
-function Page(){
-  const [data , setData]= useState([]);
+function Page() {
+  const [data, setData] = useState([]);
 
   return (
-    <div>
-      <h1>
-        hello
-      </h1>
-      <input onChange={(event)=>setData([event.target.value,...data])}
-        value={data[0]}></input>
-      <h1>{data.join(",")}</h1>
+    <div className="box">
+      <h1>Hello</h1>
+      <input 
+        onChange={(event) => setData([event.target.value, ...data])}
+        value={data[0]} 
+        placeholder="Type something..."
+      />
+      <h1>{data.join(", ")}</h1>
     </div>
-  )
+  );
 }
 
 export default Page;
